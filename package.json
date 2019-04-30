@@ -1,0 +1,15 @@
+{
+  "name": "my-webgl-animated-image",
+  "version": "1.0.0",
+  "description": "A small script to animate image with threeJS",
+  "repository": {},
+  "keywords": [
+    "threeJS",
+    "Image animation"
+  ],
+  "author": "Nicolas Bernaux",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.103.0"
+  }
+}
