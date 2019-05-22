@@ -1,5 +1,6 @@
 /* eslint-disable */
 import * as THREE from 'three';
+import { TweenLite } from 'gsap'
 
 export default function (opts) {
   const vertex = `
@@ -143,9 +144,9 @@ export default function (opts) {
    */
   function animateCircle(speed = 0.1, intensity = 0.1) {
     mat.uniforms.angle1.value = mat.uniforms.angle1.value + speed;
-    mat.uniforms.intensity1.value = 0.1;
+    mat.uniforms.intensity1.value = intensity;
     render();
-    animationFrame = requestAnimationFrame(() => {(animateCircle(speed))});
+    animationFrame = requestAnimationFrame(() => {(animateCircle(speed, intensity))});
   }
 
   /**
@@ -179,7 +180,7 @@ export default function (opts) {
    * @param speed - Movement speed
    */
   function animateToLeft(speed) {
-    mat.uniforms.angle1.value = 1;
+    mat.uniforms.angle1.value = 0.8;
     mat.uniforms.intensity1.value = mat.uniforms.intensity1.value + speed;
     render();
     animationFrame = requestAnimationFrame(() => {
@@ -192,7 +193,7 @@ export default function (opts) {
    * @param speed - Movement speed
    */
   function animateToRight(speed) {
-    mat.uniforms.angle1.value = 4;
+    mat.uniforms.angle1.value = 3.85;
     mat.uniforms.intensity1.value = mat.uniforms.intensity1.value + speed;
     render();
     animationFrame = requestAnimationFrame(() => {
@@ -230,16 +231,11 @@ export default function (opts) {
    * @param image2 - default value = image 1
    * @param mask - default value = image 1
    */
-  function updateImage(image, image2 = false, mask = false) {
-    if (!image2) {
-      image2 = image
-    }
-    if (!mask) {
-      mask = image
-    }
+  function updateImage(image, image2 = image, mask = image) {
+    ;
     const newLoader = new THREE.TextureLoader();
     newLoader.crossOrigin = '';
-    const newTexture1 = newLoader.load(image1, render);
+    const newTexture1 = newLoader.load(image, render);
     const newTexture2 = newLoader.load(image2, render);
     const newDisp = newLoader.load(mask, render);
     newDisp.wrapS = newDisp.wrapT = THREE.RepeatWrapping;
