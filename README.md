@@ -1,6 +1,11 @@
+
 # Image Effect
 
 A lightweight image animation effect with threejs.
+
+### Demo
+
+Visit the [live demo here](http://imageeffect.nicolasbernaux.com/)
 
 ### Usage
 ``` javascript
